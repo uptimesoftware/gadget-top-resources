@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+    <ModulePrefs title="Top Resources"
+                description="The Top Resources gadget displays the top resource offenders of the metric of your choice."
+                thumbnail="topResources.Thumbnail.png">
+        <Require feature="dynamic-height" />
+    </ModulePrefs>
+    <Content type="html">
+	<![CDATA[ 
+	<!DOCTYPE html>
+	<html>
+	  <head>
+	    <title>Metric Chart</title>
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <meta name="description" content="Metric Chart Gadget">
+	    <link rel="stylesheet" type="text/css" href="__UPTIME_GADGET_BASE__/deltas/bootstrap/dist/css/bootstrap.css">
+	    <link rel="stylesheet" type="text/css" href="__UPTIME_GADGET_BASE__/deltas/chosen/chosen.css">
+	    <link rel="stylesheet" type="text/css" href="__UPTIME_GADGET_BASE__/deltas/bootstrap/dist/css/bootstrap-theme.css">
+	    <link rel="stylesheet" type="text/css" href="__UPTIME_GADGET_BASE__/deltas/bootstrap/dist/css/bootstrap-multiselect.css">
+	    <link rel="stylesheet" type="text/css" href="__UPTIME_GADGET_BASE__/deltas/jquery/themes/custom/jquery-ui-1.10.3.custom.css">
+	    <link rel="stylesheet" type="text/css" href="__UPTIME_GADGET_BASE__/custom.css">
+	    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	    <!--[if lt IE 9]>
+	      <script src="__UPTIME_GADGET_BASE__/deltas/bootstrap/assets/js/html5shiv.js"></script>
+	      <script src="__UPTIME_GADGET_BASE__/deltas/bootstrap/assets/js/respond.min.js"></script>
+	    <![endif]-->
+            </head>
+            <body>
+              <div class="container" style="max-width: 100%; max-height: 95%">
+                <div class="row">
+                  <div style="width: 100%; margin-top: 3px; margin-left: 3px;" class="panel panel-default" id="widgetSettings">
+		    
+					<div class="panel-body" id="widgetBody">
+						<label> 
+							Metric:
+						</label>
+						<div id="metrics-type-div">
+		
+							<div class="btn-group pull-left" style="margin-bottom: 12px;" data-toggle="buttons" name="metric-type" id="metric-type-radio" data-content="Type of Metrics: Select the type of metrics you would like to graph" data-placement="bottom" data-trigger="hover">
+					
+								<label class="btn btn-primary" id="service-monitor-metrics-radio">
+									<input type="radio" name="metric-type-options" id="service-monitor-metrics-btn" value="service-monitor">
+									&nbsp; Service Monitor &nbsp;
+								</label>
+								<label class="btn btn-primary" id="performance-metrics-radio">
+									<input type="radio" name="metric-type-options" id="performance-metrics-btn" value="performance-monitor">
+									&nbsp; OS Perf &nbsp;
+								</label>
+								<label class="btn btn-primary" id="vmware-metrics-radio">
+									<input type="radio" name="metric-type-options" id="vmware-metrics-btn" value="vmware-monitor">
+									&nbsp; VMware &nbsp;
+								</label>
+			
+							</div>
+						</div>
+						<div hidden id="service-monitor-div" style="margin-top: 12px">
+							<div id="service-monitor-metrics-div" style="margin-top: 12px" data-content="Monitor & Metric: Select the monitor and metric you would like to graph" data-placement="top" data-trigger="hover">
+								<select class="service-monitor-metrics" id="service-monitor-metrics" data-placeholder="Select the Application or Custom Metric" tabindex="4" data-size="12" style="width: 98%">
+									<option value=""></option>
+								</select>
+							</div>
+                      </div>
+                      <div hidden id="performance-div">
+                          <div id="performance-metrics-div" style="margin-top: 12px" data-content="Monitor & Metric: Select the monitor and metric you would like to graph" data-placement="top" data-trigger="hover">
+							<select class="performance-metrics" data-placeholder="Select the OS Performance Metric" id="performance-metrics" tabindex="4" data-size="12" style="width: 98%">
+								<option value=""></option>
+							</select>
+                          </div>
+                      </div>
+					  
+					  <!--  VMware Options -->
+					  <div hidden id="vmware-div">
+						<div id="vmware-metrics-div" style="margin-top: 12px" data-content="Metric: Select the VMware metric you would like to graph" data-placement="top" data-trigger="hover">
+						  <select class="vmware-metrics" data-placeholder="Select a VMware Metric" id="vmware-metrics" tabindex="4" data-size="12" style="width: 98%">	
+							<option value=""></option>
+						  </select>
+						</div>
+                      </div>
+					  
+					  <div style="margin-top: 12px" id="group-name-div" data-content="Select a Group" data-placement="top" data-trigger="hover">
+						<select class="group-name" id="group-name" data-placeholder="Select a Group" tabindex="5" data-size="12" style="width: 98%"></select>
+                      </div>
+					  
+					  
+					  
+				<div id="options-div" style="margin-top: 12px; float:left">
+					<select class="topOrBottom" id="topOrBottom" data-size="12" style="width: 75px">
+						<option value="top">Top</option>
+						<option value="bottom">Bottom</option>
+					</select>
+					<select class="number-elements" id="number-elements" data-size="12" style="width: 60px">
+						<option value="5">5</option>
+						<option value="10">10</option>
+						<option value="15">15</option>
+						<option value="20">20</option>
+						<option value="20">25</option>
+					</select>
+					<select class="aggregate-fn" id="aggregate-fn" data-size="12" style="width: 60px">
+						<option value="average">Avg</option>
+						<option value="max">Max</option>
+						<option value="min">Min</option>
+					</select> Over
+					<select class="time-period" id="time-period" data-size="12" style="width: 75px">
+						<option value="1">1 Hr</option>
+						<option value="3">3 Hrs</option>
+						<option value="6">6 Hrs</option>
+						<option value="12">12 Hrs</option>
+						<option value="24">24 Hrs</option>
+					</select>
+
+					<div id="refresh-interval-div" style="width: 123px; margin-left: 15px; margin-top: 15px">
+					  <div><span class="glyphicon glyphicon-refresh" id="refreshIntervalIcon" style="float: left"></span></div>
+					  <div id="refreshIntervalSliderAndLabel" style="float: right; width: 100px" data-content="Refresh Rate: How frequently should the graph get updated with new data?" data-placement="top" data-trigger="hover">
+						<div id="refreshIntervalSlider"></div>
+						<div id="refreshIntervalLabel" style="margin-top: 5px; text-align: center">
+						  <span class="label label-info" id="refreshIntervalLabelContents">Every 5 minutes</span>
+						</div>
+					  </div>
+					  <span class="glyphicon glyphicon-eye-open" id="visualOptionsIcon"></span>
+					</div>
+				</div>
+		    </div>
+		    <div hidden class="panel-footer" id="buttonDiv">
+		      <div class="pull-left">
+				<button type="button" class="close" id="closeNoSave" aria-hidden="true">&times;</button>
+		      </div>
+		      <div class="pull-left" style="margin-left: 38px">
+				<button type="button" data-loading-text="Loading..." class="btn btn-success btn-xs" id="closeSettings">
+					<strong>Save</strong>
+				</button>
+		      </div>
+    		  <div hidden id="loading-div" style="float: left; margin-left: 135px">
+				<img src="__UPTIME_HTTP_BASE__/images/InProgress.gif" alt="Loading...">
+		      </div>
+		      <br>
+		    </div>
+          </div>
+        </div>
+        <div class="row" id="graph-div">
+		  <div class="modal fade" id="alertModal" tabindex="-1" role="dialog" aria-labelledby="alertModal" aria-hidden="true">
+		    <div class="modal-dialog">
+		      <div class="modal-content">
+			<div class="modal-header">
+			  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&#215;</button>
+			  <h4 class="modal-title"> Whoops...</h4>
+			</div>
+			<div class="modal-body" id="alertModalBody" style="word-wrap: break-word"></div>
+		      </div>
+		    </div>
+		  </div>
+		  <div id="widgetChart"></div>
+		  <div id="statusBar"></div>
+		  </div>
+		</div>
+	    
+		<script src="__UPTIME_GADGET_BASE__/deltas/jquery/jquery-2.0.3.min.js" type="text/javascript" ></script>
+		<script src="__UPTIME_GADGET_BASE__/deltas/jquery/ui/custom/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
+		<script src="__UPTIME_GADGET_BASE__/deltas/bootstrap/dist/js/bootstrap.js"></script>
+		<script src="__UPTIME_GADGET_BASE__/deltas/bootstrap/dist/js/bootstrap-multiselect.js"></script>
+		<script src="__UPTIME_GADGET_BASE__/deltas/chosen/chosen.jquery.js" type="text/javascript"></script>
+		<script src="__UPTIME_GADGET_BASE__/deltas/chosen/docsupport/prism.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__UPTIME_GADGET_BASE__/deltas/highcharts/js/highcharts.js" type="text/javascript" ></script>
+		<script id="ownScript" src="__UPTIME_GADGET_BASE__/topResources.js?v=1.0" type="text/javascript" charset="utf-8"></script>
+	  </body>
+	</html>
+	]]>
+    </Content>
+</Module>
