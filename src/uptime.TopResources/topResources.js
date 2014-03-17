@@ -310,12 +310,8 @@
 			
 	})
 	.then(function() {
-		// Chosen-ify dropdowns
-		$("select.group-name").chosen();
-		$("select.topOrBottom").chosen();
-		$("select.number-elements").chosen();
-		$("select.aggregate-fn").chosen();
-		$("select.time-period").chosen();
+		// Chosen-ify dropdown
+		$("select.group-name").chosen({ width: $(window).width() * 0.92 + 'px' });
 	});
 	
 	
@@ -345,7 +341,11 @@
 							+ refreshIntervalOptions[refreshIntervalSliderOptions[ui.value]]);
 				}
 			});
-		//$("#options-div").hide();
+		
+		$("select.topOrBottom").chosen();
+		$("select.number-elements").chosen();
+		$("select.aggregate-fn").chosen();
+		$("select.time-period").chosen();
 	}
 	
 	function showEditPanel() {
