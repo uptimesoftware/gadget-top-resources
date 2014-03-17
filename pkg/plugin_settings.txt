@@ -1,5 +1,5 @@
 name=Top Resources Gadget
-version=1.0
+version=1.1
 platforms=windows linux
 description=Displays the top elements with high resource usage
 requiresAgentScript=false
