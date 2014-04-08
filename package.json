@@ -1,0 +1,19 @@
+{
+        "name": "uptime.TopResources",
+        "version": "2.0.0",
+        "description": "The Top Resources gadget displays the top resource offenders of the metric of your choice. Many options are available, such as how many elements to show, whether to show top or bottom elements and average/min/max over various periods of time.",
+        "main": "src/uptime.TopResources/topResources.js",
+        "repository": {
+                "type": "git",
+                "url": "https://github.com/uptimesoftware/gadget-top-resources.git"
+        },
+        "dependencies": {
+                "uptime-gadget-tasks": "git://github.com/uptimesoftware/uptime-gadget-tasks.git"
+        },
+        "devDependencies": {
+                "grunt": "~0.4.1",
+                "grunt-contrib-compress": "~0.5.2",
+        "grunt-contrib-copy": "~0.5.0",
+                "grunt-maven-tasks": "~1.0.1"
+        }
+}
