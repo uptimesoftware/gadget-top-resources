@@ -61,7 +61,7 @@ if ($db->connectDB())
 		
 		$returnArray = array();
 		// SNMP Poller, for some reason, has some random number appended to the name in erdc_base.  Remove those numbers before showing in dropdown.
-		foreach($result as $row) {
+		foreach((array)$result as $row) {
 			if (preg_match("/SNMP Poller/i",$row[NAME])) {
 				array_push($returnArray, array("ERDC_PARAM"=>$row[ERDC_PARAM], "NAME"=>"SNMP Poller", "SHORT_DESC"=>$row[SHORT_DESC], "UNITS"=>$row[UNITS], "DATA_TYPE_ID"=>$row[DATA_TYPE_ID]));
 			} else {
@@ -1150,7 +1150,7 @@ if ($db->connectDB())
 		}
 
 		$result = $db->execQuery($sql);
-		foreach($result as $row) {
+		foreach((array)$result as $row) {
 			array_push($returnArray, array("id"=>$row[ENTITY_ID], "name"=>$row[NAME], "value"=>floatval($row[VALUE])));
 		}
 
@@ -1186,7 +1186,7 @@ function getChildGroups($db, $parentGroupID) {
 		$result = $db->execQuery($sql);
 		
 		if (!empty($result)) {
-			foreach($result as $row) {
+			foreach((array)$result as $row) {
 				array_push($needToFind, $row[ENTITY_GROUP_ID]);
 				
 			}
