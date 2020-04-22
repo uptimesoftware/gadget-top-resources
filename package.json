@@ -1,6 +1,6 @@
 {
   "name": "uptime.TopResources",
-  "version": "2.0",
+  "version": "2.1",
   "description": "The Top Resources gadget displays the top resource offenders of the metric of your choice. Many options are available, such as how many elements to show, whether to show top or bottom elements and average/min/max over various periods of time.",
   "main": "src/uptime.TopResources/topResources.js",
   "repository": {
