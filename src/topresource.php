@@ -117,7 +117,7 @@ if ($db->connectDB())
 									join entity e on eps.entity_id = e.entity_id
 									join entity_group eg on eg.entity_group_id = e.entity_group_id
 									where eg.entity_group_id in ". $groupIdString ."
-									and eps.sampletime > sysdate - interval '". $time_frame . "' second
+									and eps.sampletime > ADD_MONTHS(SYSDATE,-$time_frame)
 									group by eps.entity_id, e.display_name
 									order by value ". $sortOrder . ")
 								where rownum <= ". $numElements;
@@ -128,7 +128,7 @@ if ($db->connectDB())
 									join entity e on eps.entity_id = e.entity_id
 									join entity_group eg on eg.entity_group_id = e.entity_group_id
 									where eg.entity_group_id in ". $groupIdString ."
-									and eps.sampletime > sysdate - interval '". $time_frame . "' second
+									and eps.sampletime > ADD_MONTHS(SYSDATE,-$time_frame)
 									group by eps.entity_id, e.display_name
 									order by value ". $sortOrder . ")
 								where rownum <= ". $numElements;
@@ -139,7 +139,7 @@ if ($db->connectDB())
 									join entity e on eps.entity_id = e.entity_id
 									join entity_group eg on eg.entity_group_id = e.entity_group_id
 									where eg.entity_group_id in ". $groupIdString ."
-									and eps.sampletime > sysdate - interval '". $time_frame . "' second
+									and eps.sampletime > ADD_MONTHS(SYSDATE,-$time_frame)
 									group by eps.entity_id, e.display_name
 									order by value ". $sortOrder . ")
 								where rownum <= ". $numElements;
@@ -218,7 +218,7 @@ if ($db->connectDB())
 									join entity e on eps.entity_id = e.entity_id
 									join entity_group eg on eg.entity_group_id = e.entity_group_id
 									where eg.entity_group_id in ". $groupIdString ."
-									and eps.sampletime > sysdate - interval '". $time_frame . "' second
+									and eps.sampletime > ADD_MONTHS(SYSDATE,-$time_frame)
 									group by eps.entity_id, e.display_name
 									order by value ". $sortOrder . ")
 								where rownum <= ". $numElements;
@@ -229,7 +229,7 @@ if ($db->connectDB())
 								join entity e on eps.entity_id = e.entity_id
 								join entity_group eg on eg.entity_group_id = e.entity_group_id
 								where eg.entity_group_id in ". $groupIdString ."
-								and eps.sampletime > sysdate - interval '". $time_frame . "' second
+								and eps.sampletime > ADD_MONTHS(SYSDATE,-$time_frame)
 								group by eps.entity_id, e.display_name
 								order by value ". $sortOrder. ")
 							where rownum <= ". $numElements;
@@ -240,7 +240,7 @@ if ($db->connectDB())
 								join entity e on eps.entity_id = e.entity_id
 								join entity_group eg on eg.entity_group_id = e.entity_group_id
 								where eg.entity_group_id in ". $groupIdString ."
-								and eps.sampletime > sysdate - interval '". $time_frame . "' second
+								and eps.sampletime > ADD_MONTHS(SYSDATE,-$time_frame)
 								group by eps.entity_id, e.display_name
 								order by value ". $sortOrder. ")
 							where rownum <= ". $numElements;
@@ -317,7 +317,7 @@ if ($db->connectDB())
 									join entity e on eps.entity_id = e.entity_id
 									join entity_group eg on eg.entity_group_id = e.entity_group_id
 									where eg.entity_group_id in ". $groupIdString ."
-									and eps.sampletime > sysdate - interval '". $time_frame . "' second
+									and eps.sampletime > ADD_MONTHS(SYSDATE,-$time_frame)
 									group by eps.entity_id, e.display_name
 									order by value ". $sortOrder. ")
 								where rownum <= ". $numElements;
@@ -328,7 +328,7 @@ if ($db->connectDB())
 									join entity e on eps.entity_id = e.entity_id
 									join entity_group eg on eg.entity_group_id = e.entity_group_id
 									where eg.entity_group_id in ". $groupIdString ."
-									and eps.sampletime > sysdate - interval '". $time_frame . "' second
+									and eps.sampletime > ADD_MONTHS(SYSDATE,-$time_frame)
 									group by eps.entity_id, e.display_name
 									order by value ". $sortOrder. ")
 								where rownum <= ". $numElements;
@@ -339,7 +339,7 @@ if ($db->connectDB())
 									join entity e on eps.entity_id = e.entity_id
 									join entity_group eg on eg.entity_group_id = e.entity_group_id
 									where eg.entity_group_id in ". $groupIdString ."
-									and eps.sampletime > sysdate - interval '". $time_frame . "' second
+									and eps.sampletime > ADD_MONTHS(SYSDATE,-$time_frame)
 									group by eps.entity_id, e.display_name
 									order by value ". $sortOrder. ")
 								where rownum <= ". $numElements;
@@ -416,7 +416,7 @@ if ($db->connectDB())
 									join entity e on eps.entity_id = e.entity_id
 									join entity_group eg on eg.entity_group_id = e.entity_group_id
 									where eg.entity_group_id in ". $groupIdString ."
-									and eps.sampletime > sysdate - interval '". $time_frame . "' second
+									and eps.sampletime > ADD_MONTHS(SYSDATE,-$time_frame)
 									group by eps.entity_id, e.display_name
 									order by value ". $sortOrder. ")
 								where rownum <= ". $numElements;
@@ -427,7 +427,7 @@ if ($db->connectDB())
 									join entity e on eps.entity_id = e.entity_id
 									join entity_group eg on eg.entity_group_id = e.entity_group_id
 									where eg.entity_group_id in ". $groupIdString ."
-									and eps.sampletime > sysdate - interval '". $time_frame . "' second
+									and eps.sampletime > ADD_MONTHS(SYSDATE,-$time_frame)
 									group by eps.entity_id, e.display_name
 									order by value ". $sortOrder. ")
 								where rownum <= ". $numElements;
@@ -438,7 +438,7 @@ if ($db->connectDB())
 									join entity e on eps.entity_id = e.entity_id
 									join entity_group eg on eg.entity_group_id = e.entity_group_id
 									where eg.entity_group_id in ". $groupIdString ."
-									and eps.sampletime > sysdate - interval '". $time_frame . "' second
+									and eps.sampletime > ADD_MONTHS(SYSDATE,-$time_frame)
 									group by eps.entity_id, e.display_name
 									order by value ". $sortOrder. ")
 								where rownum <= ". $numElements;
@@ -528,7 +528,7 @@ if ($db->connectDB())
 									join vmware_perf_sample vps on vps.vmware_object_id = vo.vmware_object_id
 									join vmware_perf_aggregate vpa on vpa.sample_id = vps.sample_id
 									where eg.entity_group_id in ". $groupIdString ."
-									and vps.sample_time > sysdate - interval '". $time_frame . "' second
+									and vps.sample_time > ADD_MONTHS(SYSDATE,-$time_frame)
 									and vmware_object_type = 'VirtualMachine'
 									group by e.entity_id, e.display_name
 									order by value ". $sortOrder. ")
@@ -543,7 +543,7 @@ if ($db->connectDB())
 									join vmware_perf_sample vps on vps.vmware_object_id = vo.vmware_object_id
 									join vmware_perf_aggregate vpa on vpa.sample_id = vps.sample_id
 									where eg.entity_group_id in ". $groupIdString ."
-									and vps.sample_time > sysdate - interval '". $time_frame . "' second
+									and vps.sample_time > ADD_MONTHS(SYSDATE,-$time_frame)
 									and vmware_object_type = 'VirtualMachine'
 									group by e.entity_id, e.display_name
 									order by value ". $sortOrder. ")
@@ -558,7 +558,7 @@ if ($db->connectDB())
 								join vmware_perf_sample vps on vps.vmware_object_id = vo.vmware_object_id
 								join vmware_perf_aggregate vpa on vpa.sample_id = vps.sample_id
 								where eg.entity_group_id in ". $groupIdString ."
-								and vps.sample_time > sysdate - interval '". $time_frame . "' second
+								and vps.sample_time > ADD_MONTHS(SYSDATE,-$time_frame)
 								and vmware_object_type = 'VirtualMachine'
 								group by e.entity_id, e.display_name
 								order by value ". $sortOrder. ")
@@ -660,7 +660,7 @@ if ($db->connectDB())
 								join vmware_perf_sample vps on vps.vmware_object_id = vo.vmware_object_id
 								join vmware_perf_aggregate vpa on vpa.sample_id = vps.sample_id
 								where eg.entity_group_id in ". $groupIdString ."
-								and vps.sample_time > sysdate - interval '". $time_frame . "' second
+								and vps.sample_time > ADD_MONTHS(SYSDATE,-$time_frame)
 								and vmware_object_type = 'VirtualMachine'
 								group by e.entity_id, e.display_name
 								order by value ". $sortOrder. ")
@@ -675,7 +675,7 @@ if ($db->connectDB())
 								join vmware_perf_sample vps on vps.vmware_object_id = vo.vmware_object_id
 								join vmware_perf_aggregate vpa on vpa.sample_id = vps.sample_id
 								where eg.entity_group_id in ". $groupIdString ."
-								and vps.sample_time > sysdate - interval '". $time_frame . "' second
+								and vps.sample_time > ADD_MONTHS(SYSDATE,-$time_frame)
 								and vmware_object_type = 'VirtualMachine'
 								group by e.entity_id, e.display_name
 								order by value ". $sortOrder. ")
@@ -690,7 +690,7 @@ if ($db->connectDB())
 									join vmware_perf_sample vps on vps.vmware_object_id = vo.vmware_object_id
 									join vmware_perf_aggregate vpa on vpa.sample_id = vps.sample_id
 									where eg.entity_group_id in ". $groupIdString ."
-									and vps.sample_time > sysdate - interval '". $time_frame . "' second
+									and vps.sample_time > ADD_MONTHS(SYSDATE,-$time_frame)
 									and vmware_object_type = 'VirtualMachine'
 									group by e.entity_id, e.display_name
 									order by value ". $sortOrder. ")
@@ -801,7 +801,7 @@ if ($db->connectDB())
 										join entity_group eg on eg.entity_group_id = e.entity_group_id
 										where eg.entity_group_id in ". $groupIdString ."  
 										and eid.erdc_parameter_id = ". $metric . "  
-										and eid.sampletime > sysdate - interval '". $time_frame . "' second
+										and eid.sampletime > ADD_MONTHS(SYSDATE,-$time_frame)
 										group by e.entity_id, e.display_name
 										order by value ". $sortOrder. ")
 									where rownum <= ". $numElements;
@@ -814,7 +814,7 @@ if ($db->connectDB())
 										join entity_group eg on eg.entity_group_id = e.entity_group_id
 										where eg.entity_group_id in ". $groupIdString ."  
 										and eid.erdc_parameter_id = ". $metric . "  
-										and eid.sampletime > sysdate - interval '". $time_frame . "' second
+										and eid.sampletime > ADD_MONTHS(SYSDATE,-$time_frame)
 										group by e.entity_id, e.display_name
 										order by value ". $sortOrder. ")
 									where rownum <= ". $numElements;
@@ -827,7 +827,7 @@ if ($db->connectDB())
 									join entity_group eg on eg.entity_group_id = e.entity_group_id
 									where eg.entity_group_id in ". $groupIdString ."  
 									and eid.erdc_parameter_id = ". $metric . "  
-									and eid.sampletime > sysdate - interval '". $time_frame . "' second
+									and eid.sampletime > ADD_MONTHS(SYSDATE,-$time_frame)
 									group by e.entity_id, e.display_name
 									order by value ". $sortOrder. ")
 								where rownum <= ". $numElements;
@@ -921,7 +921,7 @@ if ($db->connectDB())
 									join entity_group eg on eg.entity_group_id = e.entity_group_id
 									where eg.entity_group_id in ". $groupIdString ."  
 									and edd.erdc_parameter_id = ". $metric . "  
-									and edd.sampletime > sysdate - interval '". $time_frame . "' second
+									and edd.sampletime > ADD_MONTHS(SYSDATE,-$time_frame)
 									group by e.entity_id, e.display_name
 									order by value ". $sortOrder. ")
 								where rownum <= ". $numElements;
@@ -934,7 +934,7 @@ if ($db->connectDB())
 									join entity_group eg on eg.entity_group_id = e.entity_group_id
 									where eg.entity_group_id in ". $groupIdString ."  
 									and edd.erdc_parameter_id = ". $metric . "  
-									and edd.sampletime > sysdate - interval '". $time_frame . "' second
+									and edd.sampletime > ADD_MONTHS(SYSDATE,-$time_frame)
 									group by e.entity_id, e.display_name
 									order by value ". $sortOrder. ")
 								where rownum <= ". $numElements;
@@ -948,7 +948,7 @@ if ($db->connectDB())
 									join entity_group eg on eg.entity_group_id = e.entity_group_id
 									where eg.entity_group_id in ". $groupIdString ."  
 									and edd.erdc_parameter_id = ". $metric . "  
-									and edd.sampletime > sysdate - interval '". $time_frame . "' second
+									and edd.sampletime > ADD_MONTHS(SYSDATE,-$time_frame)
 									group by e.entity_id, e.display_name
 									order by value ". $sortOrder. ")
 								where rownum <= ". $numElements;
@@ -1059,7 +1059,7 @@ if ($db->connectDB())
 										where eg.entity_group_id in ". $groupIdString ."  
 										and ep.name = rov.name
 										and ep.erdc_parameter_id = ". $metric . "  
-										and rov.sample_time > sysdate - interval '". $time_frame . "' second									
+										and rov.sample_time > ADD_MONTHS(SYSDATE,-$time_frame)									
 										group by e.entity_id, e.display_name, ro.object_name
 										order by value ". $sortOrder . ")" .
 										" where rownum <= ". $numElements;								
@@ -1076,7 +1076,7 @@ if ($db->connectDB())
 										where eg.entity_group_id in ". $groupIdString ."  
 										and ep.name = rov.name
 										and ep.erdc_parameter_id = ". $metric . "  
-										and rov.sample_time > sysdate - interval '". $time_frame . "' second									
+										and rov.sample_time > ADD_MONTHS(SYSDATE,-$time_frame)							
 										group by e.entity_id, e.display_name, ro.object_name
 										order by value ". $sortOrder . ")" .
 										" where rownum <= ". $numElements;
@@ -1093,7 +1093,7 @@ if ($db->connectDB())
 										where eg.entity_group_id in ". $groupIdString ."  
 										and ep.name = rov.name
 										and ep.erdc_parameter_id = ". $metric . "  
-										and rov.sample_time > sysdate - interval '". $time_frame . "' second									
+										and rov.sample_time > ADD_MONTHS(SYSDATE,-$time_frame)								
 										group by e.entity_id, e.display_name, ro.object_name
 										order by value ". $sortOrder . ")" .
 										" where rownum <= ". $numElements;
@@ -1187,7 +1187,7 @@ function getChildGroups($db, $parentGroupID) {
 		
 		if (!empty($result)) {
 			foreach((array)$result as $row) {
-				array_push($needToFind, $row[ENTITY_GROUP_ID]);
+				array_push($needToFind, $row['ENTITY_GROUP_ID']);
 				
 			}
 		}
