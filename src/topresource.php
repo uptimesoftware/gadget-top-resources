@@ -1151,7 +1151,7 @@ if ($db->connectDB())
 
 		$result = $db->execQuery($sql);
 		foreach((array)$result as $row) {
-			array_push($returnArray, array("id"=>$row[ENTITY_ID], "name"=>$row[NAME], "value"=>floatval($row[VALUE])));
+			array_push($returnArray, array("id"=>$row["ENTITY_ID"], "name"=>$row["NAME"], "value"=>floatval($row["VALUE"])));
 		}
 
 		echo json_encode($returnArray);
