@@ -11,7 +11,7 @@
     "uptime-gadget-tasks": "git://github.com/uptimesoftware/uptime-gadget-tasks.git"
   },
   "devDependencies": {
-    "grunt": "^1.1.0",
+    "grunt": "^1.5.2",
     "grunt-contrib-compress": "^1.6.0",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-maven-tasks": "^1.4.0"
